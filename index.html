@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="style.css" />
@@ -21,13 +21,12 @@
   <div class="page-loader" id="pageLoader">
     <div class="loader-inner">
       <img src="assets/logo.webp" alt="Scalera Solutions logo" class="loader-logo" />
-      <div class="loader-line">
-        <span></span>
-      </div>
+      <div class="loader-line"><span></span></div>
     </div>
   </div>
 
   <div class="bg-grid"></div>
+  <div class="bg-noise"></div>
   <div class="bg-orb orb-1"></div>
   <div class="bg-orb orb-2"></div>
   <div class="bg-orb orb-3"></div>
@@ -63,31 +62,54 @@
 
   <main>
     <section class="hero section reveal">
-      <div class="container hero-layout">
+      <div class="container hero-layout hero-layout-v2">
         <div class="hero-copy">
           <div class="eyebrow" data-i18n="heroEyebrow">AUTOCLIENT B2B-MYYNNIN ALKUVAIHEESEEN</div>
+
+          <div class="hero-kicker-row">
+            <span class="hero-kicker-pill">AI-assisted outbound</span>
+            <span class="hero-kicker-pill">Prospecting engine</span>
+            <span class="hero-kicker-pill">CRM-ready</span>
+          </div>
 
           <h1 data-i18n="heroTitle">
             Vähemmän manuaalista työtä.
             Enemmän oikeita myyntikeskusteluja.
           </h1>
 
-          <p class="hero-text" data-i18n="heroText">
-            AutoClient rakentaa systemaattisen outbound-prosessin:
-            prospektitietokanta, ostosignaalit, personoidut yhteydenotot,
-            vastausten hallinta ja läpinäkyvä dashboard yhdessä kokonaisuudessa.
+          <p class="hero-text hero-text-compact" data-i18n="heroText">
+            AutoClient rakentaa teille hallittavan outbound-järjestelmän:
+            prospektit, ostosignaalit, personoidut yhteydenotot ja läpinäkyvä dashboard samassa kokonaisuudessa.
           </p>
 
           <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary" data-i18n="heroBtnPrimary">Varaa demo</a>
+            <a href="#contact" class="btn btn-primary btn-shine" data-i18n="heroBtnPrimary">Varaa demo</a>
             <a href="#showcase" class="btn btn-secondary" data-i18n="heroBtnSecondary">Katso dashboard</a>
           </div>
 
-          <div class="hero-badges">
-            <span data-i18n="heroBadge1">Prospektitietokanta</span>
-            <span data-i18n="heroBadge2">Ostosignaalit</span>
-            <span data-i18n="heroBadge3">Personoitu outbound</span>
-            <span data-i18n="heroBadge4">CRM-integraatio</span>
+          <div class="hero-proof-grid">
+            <div class="hero-proof-card">
+              <span class="hero-proof-label" data-i18n="proof1Label">Prospektit</span>
+              <strong>2,184</strong>
+              <small data-i18n="proof1Text">Ajantasainen tietokanta</small>
+            </div>
+
+            <div class="hero-proof-card">
+              <span class="hero-proof-label" data-i18n="proof2Label">Kontaktoidut liidit</span>
+              <strong>1,024</strong>
+              <small data-i18n="proof2Text">Validoitu ennen lähetystä</small>
+            </div>
+
+            <div class="hero-proof-card">
+              <span class="hero-proof-label" data-i18n="proof3Label">Aikaa säästetty</span>
+              <strong>74h</strong>
+              <small data-i18n="proof3Text">Manuaalinen työ vähenee</small>
+            </div>
+          </div>
+
+          <div class="hero-scroll-indicator">
+            <span></span>
+            <p data-i18n="scrollText">Scrollaa alas</p>
           </div>
         </div>
 
@@ -164,9 +186,7 @@
                   <span data-i18n="bar1Label">Avausaste</span>
                   <strong>54%</strong>
                 </div>
-                <div class="chart-track">
-                  <div class="chart-fill blue-fill" style="width:54%"></div>
-                </div>
+                <div class="chart-track"><div class="chart-fill blue-fill" style="width:54%"></div></div>
               </div>
 
               <div class="chart-row">
@@ -174,9 +194,7 @@
                   <span data-i18n="bar2Label">Vastausaste</span>
                   <strong>17%</strong>
                 </div>
-                <div class="chart-track">
-                  <div class="chart-fill purple-fill" style="width:17%"></div>
-                </div>
+                <div class="chart-track"><div class="chart-fill purple-fill" style="width:17%"></div></div>
               </div>
 
               <div class="chart-row">
@@ -184,9 +202,7 @@
                   <span data-i18n="bar3Label">Tapaamiskonversio</span>
                   <strong>8%</strong>
                 </div>
-                <div class="chart-track">
-                  <div class="chart-fill" style="width:8%"></div>
-                </div>
+                <div class="chart-track"><div class="chart-fill" style="width:8%"></div></div>
               </div>
             </div>
           </div>
@@ -518,7 +534,7 @@
           </div>
 
           <div class="cta-actions">
-            <a href="mailto:info@scalerasolutions.eu" class="btn btn-primary" data-i18n="ctaPrimary">Ota yhteyttä</a>
+            <a href="mailto:info@scalerasolutions.eu" class="btn btn-primary btn-shine" data-i18n="ctaPrimary">Ota yhteyttä</a>
             <a href="mailto:info@scalerasolutions.eu?subject=AutoClient%20demo" class="btn btn-secondary" data-i18n="ctaSecondary">Varaa keskustelu</a>
           </div>
         </div>
