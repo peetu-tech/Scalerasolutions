@@ -5,6 +5,16 @@ const navLinks = document.getElementById("navLinks");
 const langButtons = document.querySelectorAll("[data-lang-btn]");
 const htmlEl = document.documentElement;
 const pageLoader = document.getElementById("pageLoader");
+const revealItems = document.querySelectorAll(".reveal");
+const header = document.getElementById("siteHeader");
+const cursorGlow = document.getElementById("cursorGlow");
+const heroDashboard = document.getElementById("heroDashboard");
+const navAnchorLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxClose = document.getElementById("lightboxClose");
+const galleryButtons = document.querySelectorAll(".gallery-open");
 
 if (menuToggle && navLinks) {
   menuToggle.addEventListener("click", () => {
@@ -32,10 +42,6 @@ const translations = {
     heroText: "AutoClient rakentaa teille hallittavan outbound-järjestelmän: prospektit, ostosignaalit, personoidut yhteydenotot ja läpinäkyvä dashboard samassa kokonaisuudessa.",
     heroBtnPrimary: "Varaa demo",
     heroBtnSecondary: "Katso dashboard",
-    heroBadge1: "Prospektitietokanta",
-    heroBadge2: "Ostosignaalit",
-    heroBadge3: "Personoitu outbound",
-    heroBadge4: "CRM-integraatio",
 
     proof1Label: "Prospektit",
     proof1Text: "Ajantasainen tietokanta",
@@ -202,10 +208,6 @@ const translations = {
     heroText: "AutoClient builds a controlled outbound system for your team: prospects, buying signals, personalized outreach and a transparent dashboard in one system.",
     heroBtnPrimary: "Book a demo",
     heroBtnSecondary: "View dashboard",
-    heroBadge1: "Prospect database",
-    heroBadge2: "Buying signals",
-    heroBadge3: "Personalized outbound",
-    heroBadge4: "CRM integration",
 
     proof1Label: "Prospects",
     proof1Text: "Up-to-date database",
@@ -366,9 +368,7 @@ function setLanguage(lang) {
 
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const key = element.getAttribute("data-i18n");
-    if (selected[key]) {
-      element.textContent = selected[key];
-    }
+    if (selected[key]) element.textContent = selected[key];
   });
 
   htmlEl.lang = lang;
@@ -389,28 +389,168 @@ langButtons.forEach((btn) => {
 const savedLang = localStorage.getItem("siteLanguage") || "fi";
 setLanguage(savedLang);
 
-const revealItems = document.querySelectorAll(".reveal");
-
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-      }
+      if (entry.isIntersecting) entry.target.classList.add("is-visible");
     });
   },
-  {
-    threshold: 0.16
-  }
+  { threshold: 0.16 }
 );
 
 revealItems.forEach((item) => revealObserver.observe(item));
 
+function formatCount(value) {
+  return value.toLocaleString("fi-FI");
+}
+
+const countElements = document.querySelectorAll(".count-up");
+const countObserver = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const el = entry.target;
+      const target = Number(el.dataset.target || 0);
+      const suffix = el.dataset.suffix || "";
+      const duration = 1400;
+      const start = performance.now();
+
+      function update(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = Math.round(target * eased);
+        el.textContent = `${formatCount(value)}${suffix}`;
+
+        if (progress < 1) requestAnimationFrame(update);
+      }
+
+      requestAnimationFrame(update);
+      observer.unobserve(el);
+    });
+  },
+  { threshold: 0.5 }
+);
+
+countElements.forEach((el) => countObserver.observe(el));
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 10) {
+    header?.classList.add("scrolled");
+  } else {
+    header?.classList.remove("scrolled");
+  }
+});
+
+const sections = [...document.querySelectorAll("main section[id]")];
+window.addEventListener("scroll", () => {
+  const scrollPos = window.scrollY + 140;
+
+  sections.forEach((section) => {
+    const id = section.getAttribute("id");
+    const top = section.offsetTop;
+    const bottom = top + section.offsetHeight;
+    const relatedLink = document.querySelector(`.nav-links a[href="#${id}"]`);
+
+    if (!relatedLink) return;
+    relatedLink.classList.toggle("active", scrollPos >= top && scrollPos < bottom);
+  });
+});
+
+if (cursorGlow) {
+  window.addEventListener("mousemove", (e) => {
+    cursorGlow.style.left = `${e.clientX}px`;
+    cursorGlow.style.top = `${e.clientY}px`;
+  });
+}
+
+if (heroDashboard) {
+  window.addEventListener("mousemove", (e) => {
+    const rect = heroDashboard.getBoundingClientRect();
+    const within =
+      e.clientX >= rect.left &&
+      e.clientX <= rect.right &&
+      e.clientY >= rect.top &&
+      e.clientY <= rect.bottom;
+
+    if (!within) {
+      heroDashboard.style.transform = "rotateX(0deg) rotateY(0deg)";
+      return;
+    }
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const px = (x / rect.width - 0.5) * 2;
+    const py = (y / rect.height - 0.5) * 2;
+
+    heroDashboard.style.transform = `rotateX(${(-py * 5).toFixed(2)}deg) rotateY(${(px * 7).toFixed(2)}deg)`;
+  });
+
+  heroDashboard.addEventListener("mouseleave", () => {
+    heroDashboard.style.transform = "rotateX(0deg) rotateY(0deg)";
+  });
+}
+
+document.querySelectorAll(".tilt-card").forEach((card) => {
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const px = (x / rect.width - 0.5) * 2;
+    const py = (y / rect.height - 0.5) * 2;
+
+    card.style.transform = `rotateX(${(-py * 3).toFixed(2)}deg) rotateY(${(px * 4).toFixed(2)}deg) translateY(-4px)`;
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "";
+  });
+});
+
+document.querySelectorAll(".magnetic-btn").forEach((btn) => {
+  btn.addEventListener("mousemove", (e) => {
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    btn.style.transform = `translate(${x * 0.08}px, ${y * 0.12}px)`;
+  });
+
+  btn.addEventListener("mouseleave", () => {
+    btn.style.transform = "";
+  });
+});
+
+galleryButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const src = button.dataset.lightboxSrc;
+    const alt = button.dataset.lightboxAlt || "";
+    if (!src || !lightbox || !lightboxImage) return;
+
+    lightboxImage.src = src;
+    lightboxImage.alt = alt;
+    lightbox.classList.add("open");
+    document.body.style.overflow = "hidden";
+  });
+});
+
+function closeLightbox() {
+  if (!lightbox || !lightboxImage) return;
+  lightbox.classList.remove("open");
+  lightboxImage.src = "";
+  document.body.style.overflow = "";
+}
+
+lightboxClose?.addEventListener("click", closeLightbox);
+lightbox?.addEventListener("click", (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeLightbox();
+});
+
 window.addEventListener("load", () => {
   setTimeout(() => {
-    if (pageLoader) {
-      pageLoader.classList.add("hidden");
-    }
+    pageLoader?.classList.add("hidden");
     document.body.classList.remove("is-loading");
-  }, 850);
+  }, 950);
 });
