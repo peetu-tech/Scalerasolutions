@@ -55,6 +55,13 @@ img {
   max-width: 100%;
 }
 
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
 .container {
   width: min(100% - 40px, var(--max-width));
   margin: 0 auto;
@@ -66,7 +73,7 @@ img {
 }
 
 .alt-section {
-  background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.018), rgba(255, 255, 255, 0));
 }
 
 .narrow {
@@ -115,18 +122,21 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 28px;
+  position: relative;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
   gap: 14px;
+  flex-shrink: 0;
 }
 
 .brand-logo {
   width: 44px;
   height: 44px;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 .brand-name {
@@ -139,7 +149,7 @@ img {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 18px;
 }
 
 .nav-links a {
@@ -172,14 +182,46 @@ img {
   border-radius: 999px;
 }
 
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.lang-btn {
+  min-width: 42px;
+  height: 36px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.lang-btn:hover {
+  color: var(--text);
+}
+
+.lang-btn.active {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--purple), var(--blue));
+}
+
 .bg-grid {
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   background-size: 42px 42px;
-  mask-image: linear-gradient(180deg, rgba(255,255,255,0.3), transparent 85%);
+  mask-image: linear-gradient(180deg, rgba(255, 255, 255, 0.3), transparent 85%);
   pointer-events: none;
   z-index: -3;
 }
@@ -250,7 +292,8 @@ img {
   border-radius: 16px;
   font-weight: 700;
   border: 1px solid transparent;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
 }
 
 .btn:hover {
@@ -266,7 +309,7 @@ img {
 .btn-secondary,
 .btn-nav {
   color: var(--text);
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   border-color: var(--line);
 }
 
@@ -280,7 +323,7 @@ img {
 .meta-card {
   padding: 18px;
   border-radius: 20px;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--line);
 }
 
@@ -297,7 +340,7 @@ img {
 
 .card {
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015)),
     var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -333,7 +376,7 @@ img {
   width: 9px;
   height: 9px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.16);
+  background: rgba(255, 255, 255, 0.16);
 }
 
 .dashboard-label {
@@ -402,7 +445,7 @@ img {
 .dashboard-panel {
   padding: 18px;
   border-radius: 20px;
-  background: rgba(255,255,255,0.025);
+  background: rgba(255, 255, 255, 0.025);
   border: 1px solid var(--line);
 }
 
@@ -423,7 +466,7 @@ img {
   gap: 16px;
   align-items: center;
   padding: 14px 0;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .lead-row:first-of-type {
@@ -450,7 +493,7 @@ img {
   border-radius: 999px;
   font-weight: 700;
   font-size: 0.86rem;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--line);
 }
 
@@ -488,7 +531,7 @@ img {
 .bar-track {
   width: 100%;
   height: 10px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 999px;
   overflow: hidden;
 }
@@ -512,15 +555,15 @@ img {
   padding: 14px 16px;
   border-radius: 16px;
   color: var(--muted);
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--line);
   font-size: 0.92rem;
 }
 
 .trust-strip {
-  border-top: 1px solid rgba(255,255,255,0.06);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  background: rgba(255,255,255,0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .trust-strip-inner {
@@ -623,7 +666,7 @@ img {
   padding: 18px 22px;
   border-radius: 18px;
   border: 1px solid var(--line-strong);
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   color: var(--muted);
 }
 
@@ -661,7 +704,7 @@ img {
 .featured {
   border-color: rgba(25, 0, 255, 0.28);
   background:
-    linear-gradient(180deg, rgba(25,0,255,0.10), rgba(66,18,163,0.08)),
+    linear-gradient(180deg, rgba(25, 0, 255, 0.10), rgba(66, 18, 163, 0.08)),
     var(--surface-2);
   transform: translateY(-8px);
 }
@@ -703,7 +746,7 @@ img {
   border: 1px solid rgba(25, 0, 255, 0.16);
   background:
     linear-gradient(135deg, rgba(66, 18, 163, 0.18), rgba(25, 0, 255, 0.14)),
-    rgba(255,255,255,0.03);
+    rgba(255, 255, 255, 0.03);
   box-shadow: var(--shadow);
 }
 
@@ -735,7 +778,7 @@ img {
   grid-template-columns: 1.4fr 0.8fr 0.8fr;
   gap: 24px;
   padding-top: 24px;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-brand p {
@@ -808,7 +851,7 @@ img {
     align-items: flex-start;
     gap: 18px;
     padding: 18px;
-    background: rgba(0,0,0,0.92);
+    background: rgba(0, 0, 0, 0.92);
     border: 1px solid var(--line);
     border-radius: 20px;
     box-shadow: var(--shadow);
@@ -816,6 +859,10 @@ img {
 
   .nav-links.open {
     display: flex;
+  }
+
+  .lang-switch {
+    margin: 4px 0;
   }
 
   .dashboard-metrics {
