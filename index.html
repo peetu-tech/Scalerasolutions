@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Scalera Solutions | AI-Powered B2B Growth</title>
+  <title>Scalera Solutions | AutoClient</title>
   <meta
     name="description"
-    content="Scalera Solutions helps B2B teams automate prospecting, outbound execution and early-stage sales workflows with AutoClient."
+    content="Scalera Solutions auttaa B2B-yrityksiä automatisoimaan prospektointia, outboundia ja myyntiprosessin alkuvaiheita AutoClientin avulla."
   />
+  <link rel="icon" type="image/webp" href="assets/logo.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -30,17 +31,23 @@
         </div>
       </a>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <button class="menu-toggle" id="menuToggle" aria-label="Avaa valikko">
         <span></span>
         <span></span>
       </button>
 
       <nav class="nav-links" id="navLinks">
-        <a href="#product">Product</a>
-        <a href="#features">Features</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#process">Process</a>
-        <a href="#contact" class="btn btn-nav">Book a call</a>
+        <a href="#product" data-i18n="navProduct">Tuote</a>
+        <a href="#features" data-i18n="navFeatures">Ominaisuudet</a>
+        <a href="#pricing" data-i18n="navPricing">Hinnoittelu</a>
+        <a href="#process" data-i18n="navProcess">Käyttöönotto</a>
+
+        <div class="lang-switch" aria-label="Language switch">
+          <button type="button" class="lang-btn active" data-lang-btn="fi">FI</button>
+          <button type="button" class="lang-btn" data-lang-btn="en">EN</button>
+        </div>
+
+        <a href="#contact" class="btn btn-nav" data-i18n="navContact">Varaa keskustelu</a>
       </nav>
     </div>
   </header>
@@ -49,34 +56,33 @@
     <section class="hero section">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow">AI SYSTEMS FOR B2B SALES TEAMS</div>
-          <h1>
-            Build a cleaner,
-            smarter outbound engine.
+          <div class="eyebrow" data-i18n="heroEyebrow">AI-JÄRJESTELMÄ B2B-MYYNNIN ALKUVAIHEESEEN</div>
+          <h1 data-i18n="heroTitle">
+            Vähemmän manuaalista työtä, enemmän laadukkaita myyntikeskusteluja.
           </h1>
-          <p class="hero-text">
-            AutoClient helps B2B companies automate prospecting, lead research,
-            outbound preparation and sales assistance — without losing control
-            over strategy, messaging or quality.
+          <p class="hero-text" data-i18n="heroText">
+            AutoClient auttaa rakentamaan systemaattisen outbound-prosessin:
+            prospektitietokanta, ostosignaalit, personoidut yhteydenotot,
+            vastausten hallinta ja läpinäkyvä dashboard samassa kokonaisuudessa.
           </p>
 
           <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Book a demo</a>
-            <a href="#pricing" class="btn btn-secondary">View pricing</a>
+            <a href="#contact" class="btn btn-primary" data-i18n="heroBtnPrimary">Varaa demo</a>
+            <a href="#pricing" class="btn btn-secondary" data-i18n="heroBtnSecondary">Katso hinnoittelu</a>
           </div>
 
           <div class="hero-meta">
             <div class="meta-card">
-              <strong>Prospecting</strong>
-              <span>Finds high-fit accounts faster</span>
+              <strong data-i18n="meta1Title">Prospektitietokanta</strong>
+              <span data-i18n="meta1Text">Kattaa asiakasprofiiliin sopivat yritykset ja päättäjät</span>
             </div>
             <div class="meta-card">
-              <strong>Outbound</strong>
-              <span>Campaign execution with full visibility</span>
+              <strong data-i18n="meta2Title">Personoitu outbound</strong>
+              <span data-i18n="meta2Text">Yhteydenotot tehdään teidän strategian ja kontekstin pohjalta</span>
             </div>
             <div class="meta-card">
-              <strong>Insights</strong>
-              <span>Better data for better sales decisions</span>
+              <strong data-i18n="meta3Title">Täysi näkyvyys</strong>
+              <span data-i18n="meta3Text">Dashboard ja CRM-integraatio pitävät prosessin läpinäkyvänä</span>
             </div>
           </div>
         </div>
@@ -89,59 +95,62 @@
               </div>
               <div>
                 <p class="dashboard-label">AutoClient Dashboard</p>
-                <h3>Live pipeline overview</h3>
+                <h3 data-i18n="dashboardTitle">Live-näkymä pipelineen</h3>
               </div>
             </div>
-            <span class="status-badge">Live</span>
+            <span class="status-badge" data-i18n="dashboardLive">Live</span>
           </div>
 
           <div class="dashboard-metrics">
             <div class="metric">
-              <span class="metric-label">Prospects found</span>
+              <span class="metric-label" data-i18n="metric1Label">Prospektit löydetty</span>
               <strong>2,184</strong>
-              <small>+18% this month</small>
+              <small data-i18n="metric1Text">+18% tässä kuussa</small>
             </div>
             <div class="metric">
-              <span class="metric-label">Leads contacted</span>
+              <span class="metric-label" data-i18n="metric2Label">Liidejä kontaktoitu</span>
               <strong>1,024</strong>
-              <small>Validated before send</small>
+              <small data-i18n="metric2Text">Tarkistettu ennen lähetystä</small>
             </div>
             <div class="metric">
-              <span class="metric-label">Meetings booked</span>
+              <span class="metric-label" data-i18n="metric3Label">Tapaamisia buukattu</span>
               <strong>26</strong>
-              <small>High-intent pipeline</small>
+              <small data-i18n="metric3Text">Korkean intentin liidejä</small>
             </div>
             <div class="metric">
-              <span class="metric-label">Time saved</span>
+              <span class="metric-label" data-i18n="metric4Label">Aikaa säästetty</span>
               <strong>74h</strong>
-              <small>Manual work removed</small>
+              <small data-i18n="metric4Text">Manuaalista työtä poistettu</small>
             </div>
           </div>
 
           <div class="dashboard-panels">
             <div class="dashboard-panel">
               <div class="panel-head">
-                <span>Lead quality</span>
-                <span>Score</span>
+                <span data-i18n="panelLeadQuality">Liidien laatu</span>
+                <span data-i18n="panelScore">Pisteet</span>
               </div>
+
               <div class="lead-row">
                 <div>
                   <strong>Nordic Advisory Group</strong>
-                  <p>Hiring signal + market expansion</p>
+                  <p data-i18n="lead1Text">Ostosignaali: rekrytointi + laajentuminen</p>
                 </div>
                 <span class="pill pill-blue">92</span>
               </div>
+
               <div class="lead-row">
                 <div>
                   <strong>FinCore Partners</strong>
-                  <p>Decision-maker identified</p>
+                  <p data-i18n="lead2Text">Päättäjä tunnistettu</p>
                 </div>
                 <span class="pill pill-purple">88</span>
               </div>
+
               <div class="lead-row">
                 <div>
                   <strong>Axion Systems</strong>
-                  <p>Campaign-ready contact set</p>
+                  <p data-i18n="lead3Text">Kampanjavalmis kontaktijoukko</p>
                 </div>
                 <span class="pill">81</span>
               </div>
@@ -149,14 +158,14 @@
 
             <div class="dashboard-panel">
               <div class="panel-head">
-                <span>Campaign performance</span>
-                <span>Last 30d</span>
+                <span data-i18n="panelCampaignPerformance">Kampanjan suorituskyky</span>
+                <span data-i18n="panelLast30">Viimeiset 30 pv</span>
               </div>
 
               <div class="bar-list">
                 <div class="bar-item">
                   <div class="bar-info">
-                    <span>Email open rate</span>
+                    <span data-i18n="bar1Label">Sähköpostin avausaste</span>
                     <strong>54%</strong>
                   </div>
                   <div class="bar-track">
@@ -166,7 +175,7 @@
 
                 <div class="bar-item">
                   <div class="bar-info">
-                    <span>Reply rate</span>
+                    <span data-i18n="bar2Label">Vastausaste</span>
                     <strong>17%</strong>
                   </div>
                   <div class="bar-track">
@@ -176,7 +185,7 @@
 
                 <div class="bar-item">
                   <div class="bar-info">
-                    <span>Meeting conversion</span>
+                    <span data-i18n="bar3Label">Tapaamiskonversio</span>
                     <strong>8%</strong>
                   </div>
                   <div class="bar-track">
@@ -185,9 +194,9 @@
                 </div>
               </div>
 
-              <div class="mini-note">
-                Messaging stays aligned with your strategy. Execution becomes faster,
-                cleaner and measurable.
+              <div class="mini-note" data-i18n="dashboardNote">
+                Viestit pysyvät teidän strategian mukaisina. Toteutus muuttuu
+                nopeammaksi, systemaattisemmaksi ja mitattavaksi.
               </div>
             </div>
           </div>
@@ -197,47 +206,49 @@
 
     <section class="trust-strip">
       <div class="container trust-strip-inner">
-        <span>Built for modern B2B teams</span>
-        <span>AI-assisted prospecting</span>
-        <span>Human-controlled messaging</span>
-        <span>Transparent analytics</span>
-        <span>CRM-ready workflows</span>
+        <span data-i18n="strip1">Suunniteltu moderneille B2B-tiimeille</span>
+        <span data-i18n="strip2">Ostosignaalit ja prospektointi</span>
+        <span data-i18n="strip3">Personoitu outbound</span>
+        <span data-i18n="strip4">Läpinäkyvä analytiikka</span>
+        <span data-i18n="strip5">CRM-valmis toimintamalli</span>
       </div>
     </section>
 
     <section class="section" id="product">
       <div class="container">
         <div class="section-heading narrow">
-          <div class="eyebrow">WHAT AUTOCLIENT DOES</div>
-          <h2>A focused system for early-stage B2B sales execution</h2>
-          <p>
-            AutoClient helps you identify ideal prospects, enrich account data,
-            prepare outbound campaigns and support your team when leads respond.
+          <div class="eyebrow" data-i18n="productEyebrow">MITÄ AUTOCLIENT TEKEE</div>
+          <h2 data-i18n="productTitle">Systemaattinen ratkaisu myyntiprosessin alkuvaiheeseen</h2>
+          <p data-i18n="productText">
+            AutoClient rakentaa ja ylläpitää prospektidataa, tunnistaa
+            ostosignaaleja, valmistelee yhteydenottoja ja tukee liidien
+            käsittelyä, jotta myyntitiimi voi käyttää enemmän aikaa oikeisiin
+            keskusteluihin.
           </p>
         </div>
 
         <div class="grid-3">
           <article class="card simple-card">
-            <h3>Book better meetings</h3>
-            <p>
-              The main goal is to create more high-quality sales conversations
-              with companies that actually fit your offer.
+            <h3 data-i18n="productCard1Title">Vähemmän käsityötä</h3>
+            <p data-i18n="productCard1Text">
+              Prospektointi, datan rikastus ja outboundin rutiinit eivät jää enää
+              myyjien manuaalisen työn varaan.
             </p>
           </article>
 
           <article class="card simple-card">
-            <h3>Generate better market data</h3>
-            <p>
-              Learn who your best-fit prospects are, what situation they are in
-              and how your outreach should be positioned.
+            <h3 data-i18n="productCard2Title">Ajankohtaisemmat liidit</h3>
+            <p data-i18n="productCard2Text">
+              Ostosignaalit auttavat tunnistamaan, keihin kannattaa olla
+              yhteydessä juuri nyt.
             </p>
           </article>
 
           <article class="card simple-card">
-            <h3>Reduce manual work</h3>
-            <p>
-              Remove repetitive lead sourcing, contact collection and campaign
-              preparation from your team's daily workflow.
+            <h3 data-i18n="productCard3Title">Parempi näkyvyys</h3>
+            <p data-i18n="productCard3Text">
+              Dashboard ja integraatiot tuovat prosessin, aktiviteetit ja datan
+              selkeästi näkyville.
             </p>
           </article>
         </div>
@@ -247,66 +258,61 @@
     <section class="section alt-section" id="features">
       <div class="container">
         <div class="section-heading">
-          <div class="eyebrow">FEATURES</div>
-          <h2>Simple structure. Serious capability.</h2>
-          <p>
-            AutoClient is designed to make outbound look and feel more like a
-            reliable system than a messy manual process.
+          <div class="eyebrow" data-i18n="featuresEyebrow">OMINAISUUDET</div>
+          <h2 data-i18n="featuresTitle">Yksinkertainen rakenne, vahva toteutus</h2>
+          <p data-i18n="featuresText">
+            AutoClient yhdistää prospektitietokannan, analytiikan,
+            personoidut yhteydenotot ja jatkuvan operoinnin yhdeksi
+            järjestelmäksi.
           </p>
         </div>
 
         <div class="feature-grid">
           <article class="card feature-card">
             <span class="feature-number">01</span>
-            <h3>Prospecting</h3>
-            <p>
-              Finds companies that match your ICP and identifies relevant buying
-              signals such as hiring, funding, leadership changes or expansion.
+            <h3 data-i18n="f1Title">Prospektitietokanta</h3>
+            <p data-i18n="f1Text">
+              Rakentaa asiakasprofiiliinne perustuvan tietokannan yrityksistä ja päättäjistä.
             </p>
           </article>
 
           <article class="card feature-card">
             <span class="feature-number">02</span>
-            <h3>Contact discovery</h3>
-            <p>
-              Finds the right people inside target companies and verifies
-              contact data before it is used in campaigns.
+            <h3 data-i18n="f2Title">Ostosignaalihaku</h3>
+            <p data-i18n="f2Text">
+              Päivittää dataa säännöllisesti ja auttaa löytämään ajankohtaiset prospektit.
             </p>
           </article>
 
           <article class="card feature-card">
             <span class="feature-number">03</span>
-            <h3>Data enrichment</h3>
-            <p>
-              Adds useful context about each account so your team knows what to
-              prioritize and why.
+            <h3 data-i18n="f3Title">Datan rikastus</h3>
+            <p data-i18n="f3Text">
+              Analysoi prospektin tilannetta, kipupisteitä ja prioriteettia ennen yhteydenottoa.
             </p>
           </article>
 
           <article class="card feature-card">
             <span class="feature-number">04</span>
-            <h3>Campaign preparation</h3>
-            <p>
-              Outreach is created around your strategy, your templates and your
-              positioning — not generic AI spam.
+            <h3 data-i18n="f4Title">Personoidut viestit</h3>
+            <p data-i18n="f4Text">
+              Viestit kirjoitetaan teidän kontekstilla, teidän mallien ja strategian pohjalta.
             </p>
           </article>
 
           <article class="card feature-card">
             <span class="feature-number">05</span>
-            <h3>Reply assistance</h3>
-            <p>
-              When a lead replies, AutoClient can prepare response drafts to
-              make your team faster in live conversations.
+            <h3 data-i18n="f5Title">Jatkuva outbound</h3>
+            <p data-i18n="f5Text">
+              Follow-upit, uudelleenkontaktointi ja useiden päättäjien lähestyminen kuuluvat prosessiin.
             </p>
           </article>
 
           <article class="card feature-card">
             <span class="feature-number">06</span>
-            <h3>Dashboard and analytics</h3>
-            <p>
-              Get full visibility into prospects, campaigns, performance and
-              operational throughput from one place.
+            <h3 data-i18n="f6Title">Dashboard ja CRM</h3>
+            <p data-i18n="f6Text">
+              Kaikki data, aktiviteetit ja suorituskyky näkyvät selkeästi yhdessä paikassa.
             </p>
           </article>
         </div>
@@ -316,43 +322,43 @@
     <section class="section">
       <div class="container split-section">
         <div class="section-heading">
-          <div class="eyebrow">HOW IT FEELS TO USE</div>
-          <h2>Less clutter. More control.</h2>
-          <p>
-            The experience is built around clarity. You always know what the
-            system is doing, what data it is producing and where your team
-            should focus next.
+          <div class="eyebrow" data-i18n="useEyebrow">MITÄ HYÖTYÄ TÄSTÄ ON</div>
+          <h2 data-i18n="useTitle">Enemmän kontrollia, vähemmän sekavaa outboundia</h2>
+          <p data-i18n="useText">
+            Ajatus on yksinkertainen: järjestelmä hoitaa raskaat ja toistuvat
+            vaiheet, jotta myynti voi keskittyä keskusteluihin, klousaamiseen ja
+            prosessin optimointiin.
           </p>
         </div>
 
         <div class="grid-2">
           <div class="card simple-card">
-            <h3>What we handle</h3>
+            <h3 data-i18n="whatWeHandleTitle">Mitä AutoClient hoitaa</h3>
             <ul class="check-list">
-              <li>Prospect sourcing</li>
-              <li>Buying signal identification</li>
-              <li>Contact discovery and verification</li>
-              <li>Data enrichment and scoring</li>
-              <li>Campaign execution infrastructure</li>
-              <li>Dashboard and reporting</li>
+              <li data-i18n="wh1">Prospektien etsintä ja tietokannan ylläpito</li>
+              <li data-i18n="wh2">Ostosignaalien tunnistus</li>
+              <li data-i18n="wh3">Datan rikastus ja analyysi</li>
+              <li data-i18n="wh4">Personoitujen viestien valmistelu</li>
+              <li data-i18n="wh5">Yhteydenotot, follow-upit ja vastausten hallinta</li>
+              <li data-i18n="wh6">Dashboard ja integraatiot</li>
             </ul>
           </div>
 
           <div class="card simple-card">
-            <h3>What remains with your team</h3>
+            <h3 data-i18n="yourTeamTitle">Mihin teidän tiimi keskittyy</h3>
             <ul class="check-list">
-              <li>Offer positioning and ICP direction</li>
-              <li>Outbound strategy and messaging decisions</li>
-              <li>Sales calls and closing</li>
-              <li>Performance review and iteration</li>
-              <li>Inbox ownership and sales follow-up</li>
+              <li data-i18n="yt1">Tarjouksen ja kohderyhmän suunta</li>
+              <li data-i18n="yt2">Viestistrategian linjaukset</li>
+              <li data-i18n="yt3">Myyntikeskustelut ja klousaus</li>
+              <li data-i18n="yt4">Tulosten arviointi ja kehitys</li>
+              <li data-i18n="yt5">Liiketoiminnan kasvun ohjaaminen</li>
             </ul>
           </div>
         </div>
 
-        <div class="callout">
-          AutoClient does not replace your sales team. It removes friction around
-          prospecting, outbound execution and early-stage workflow management.
+        <div class="callout" data-i18n="calloutText">
+          AutoClient ei korvaa myyntitiimiä. Se rakentaa jatkuvan ja hallittavan
+          outbound-järjestelmän myynnin alkuvaiheeseen.
         </div>
       </div>
     </section>
@@ -360,37 +366,34 @@
     <section class="section alt-section">
       <div class="container">
         <div class="section-heading">
-          <div class="eyebrow">SUCCESS METRICS</div>
-          <h2>Results should be visible, practical and measurable</h2>
+          <div class="eyebrow" data-i18n="successEyebrow">MIKSI TÄMÄ TOIMII</div>
+          <h2 data-i18n="successTitle">Ajantasainen data + jatkuva prosessi + personointi</h2>
+          <p data-i18n="successText">
+            Kun oikeat prospektit tunnistetaan, heihin ollaan yhteydessä oikeaan
+            aikaan ja prosessi rullaa jatkuvasti, pipeline rakentuu tasaisemmin.
+          </p>
         </div>
 
         <div class="grid-3">
           <div class="card simple-card">
-            <h3>What strong performance looks like</h3>
-            <ul class="check-list">
-              <li>More booked meetings per month</li>
-              <li>Higher sales efficiency</li>
-              <li>Clearer prospect quality insights</li>
-              <li>Less time lost to manual list building</li>
-            </ul>
+            <h3 data-i18n="successCard1Title">Ajantasainen prospektidata</h3>
+            <p data-i18n="successCard1Text">
+              Tiedätte ketkä kuuluvat kohderyhmäänne juuri nyt ja ketkä ovat ajankohtaisia.
+            </p>
           </div>
 
           <div class="card simple-card">
-            <h3>What we can guarantee</h3>
-            <ul class="check-list">
-              <li>Agreed minimum prospecting output</li>
-              <li>Agreed minimum outreach activity</li>
-              <li>Access to campaign and performance data</li>
-            </ul>
+            <h3 data-i18n="successCard2Title">Säännöllinen kontaktointi</h3>
+            <p data-i18n="successCard2Text">
+              Prospektit eivät jää yhden viestin varaan, vaan prosessi jatkuu suunnitelmallisesti.
+            </p>
           </div>
 
           <div class="card simple-card">
-            <h3>What to monitor</h3>
-            <ul class="check-list">
-              <li>Meetings booked vs. outreach volume</li>
-              <li>Hours saved through automation</li>
-              <li>ROI from revenue gain and saved cost</li>
-            </ul>
+            <h3 data-i18n="successCard3Title">Selkeä näkyvyys</h3>
+            <p data-i18n="successCard3Text">
+              Data ja aktiviteetit näkyvät dashboardilla, mikä auttaa strategian optimoinnissa.
+            </p>
           </div>
         </div>
       </div>
@@ -399,55 +402,52 @@
     <section class="section" id="pricing">
       <div class="container">
         <div class="section-heading">
-          <div class="eyebrow">PRICING</div>
-          <h2>Choose the level that fits your growth stage</h2>
-          <p>
-            Each plan is built around operational volume, campaign capacity and
-            system depth.
+          <div class="eyebrow" data-i18n="pricingEyebrow">HINNOITTELU</div>
+          <h2 data-i18n="pricingTitle">Aloita pilotilla tai rakenna jatkuva toimintamalli</h2>
+          <p data-i18n="pricingText">
+            Yhteistyö voidaan käynnistää kevyesti pilotilla, jonka jälkeen
+            kokonaisuutta voidaan laajentaa yrityksenne tarpeiden mukaan.
           </p>
         </div>
 
         <div class="pricing-grid">
           <article class="card pricing-card">
-            <div class="plan-name">Basic</div>
-            <h3>€500<span>/month</span></h3>
-            <p class="plan-sub">+ performance fee • Setup €1000</p>
+            <div class="plan-name" data-i18n="planPilot">Pilotti</div>
+            <h3>500€<span data-i18n="planVat"> + alv</span></h3>
+            <p class="plan-sub" data-i18n="pilotSub">Matala kynnys testata konsepti käytännössä</p>
             <ul class="pricing-list">
-              <li>All core AutoClient features</li>
-              <li>Up to 1000 new leads / month</li>
-              <li>1500 prospect companies mapped</li>
-              <li>HubSpot integration included</li>
-              <li>Dashboard access</li>
-              <li>Up to 4 live campaigns</li>
+              <li data-i18n="pilot1">Prospekti-databasen rakentaminen</li>
+              <li data-i18n="pilot2">Vähintään 500 prospektin kontaktointi</li>
+              <li data-i18n="pilot3">Follow-upit, vastausten hallinta ja buukkaus</li>
+              <li data-i18n="pilot4">Datan rikastus ja ostosignaalit</li>
             </ul>
           </article>
 
           <article class="card pricing-card featured">
-            <div class="featured-badge">Most popular</div>
-            <div class="plan-name">Growth</div>
-            <h3>€1000<span>/month</span></h3>
-            <p class="plan-sub">+ performance fee • Setup €1500</p>
+            <div class="featured-badge" data-i18n="featuredBadge">Suositeltu</div>
+            <div class="plan-name">Basic</div>
+            <h3>1800€<span data-i18n="planQuarter"> / 3 kk</span></h3>
+            <p class="plan-sub" data-i18n="basicSub">Tai 6000€ / vuosi + provisio</p>
             <ul class="pricing-list">
-              <li>Up to 2000 contacted leads / month</li>
-              <li>5000 prospect companies mapped</li>
-              <li>CRM integration regardless of system</li>
-              <li>Advanced performance analytics</li>
-              <li>Multi-user dashboard</li>
-              <li>Up to 10 live campaigns</li>
+              <li data-i18n="basic1">Koko asiakasprofiilin kartoitus</li>
+              <li data-i18n="basic2">Jopa 1000 päättäjään kontaktointi kuukaudessa</li>
+              <li data-i18n="basic3">Ostosignaalihaku 2 viikon välein</li>
+              <li data-i18n="basic4">Prospektitietokannan säännöllinen päivitys</li>
+              <li data-i18n="basic5">CRM-integraatio</li>
+              <li data-i18n="basic6">Vastaustenhallinta ja tapaamisten buukkaus</li>
             </ul>
           </article>
 
           <article class="card pricing-card">
-            <div class="plan-name">Scale</div>
-            <h3>€2000<span>/month</span></h3>
-            <p class="plan-sub">+ performance fee • Setup €2500</p>
+            <div class="plan-name" data-i18n="planScale">Laajennukset</div>
+            <h3 data-i18n="customPlan">Custom</h3>
+            <p class="plan-sub" data-i18n="customSub">Skaalataan tarpeen mukaan</p>
             <ul class="pricing-list">
-              <li>Full customization</li>
-              <li>Up to 4000 contacted leads</li>
-              <li>10,000 prospect companies mapped</li>
-              <li>CRM integrations</li>
-              <li>Expanded dashboard environment</li>
-              <li>Unlimited campaigns</li>
+              <li data-i18n="custom1">Suurempi outbound-volyymi</li>
+              <li data-i18n="custom2">Useampi asiakassegmentti</li>
+              <li data-i18n="custom3">Useammin tapahtuva ostosignaalihaku</li>
+              <li data-i18n="custom4">Inbound / outbound-infran ulkoistaminen</li>
+              <li data-i18n="custom5">Domainit, inboxit ja Workspace-ylläpito</li>
             </ul>
           </article>
         </div>
@@ -457,42 +457,44 @@
     <section class="section alt-section" id="process">
       <div class="container">
         <div class="section-heading">
-          <div class="eyebrow">IMPLEMENTATION</div>
-          <h2>A clean launch process from kickoff to live system</h2>
+          <div class="eyebrow" data-i18n="processEyebrow">KÄYTTÖÖNOTTO</div>
+          <h2 data-i18n="processTitle">Järjestelmä käyntiin noin 10 päivässä</h2>
+          <p data-i18n="processText">
+            Käyttöönotto on rakennettu nopeaksi: tiedot, kickoff, räätälöinti ja
+            käynnistys selkeällä aikataululla.
+          </p>
         </div>
 
         <div class="timeline">
           <div class="timeline-item card">
-            <span class="timeline-step">Day 1</span>
-            <h3>Agreement and onboarding start</h3>
-            <p>
-              We align on scope, goals and the initial operating model.
+            <span class="timeline-step" data-i18n="day1">Päivä 2</span>
+            <h3 data-i18n="proc1Title">Esitäytetty asiakas- ja ICP-lomake</h3>
+            <p data-i18n="proc1Text">
+              Lähetämme lomakkeen valmiiksi pohjustettuna, ja te tarkastatte sen.
             </p>
           </div>
 
           <div class="timeline-item card">
-            <span class="timeline-step">Day 3</span>
-            <h3>Client data and campaign input</h3>
-            <p>
-              You receive structured forms for brand context, offer details,
-              ICP definition and campaign requirements.
+            <span class="timeline-step" data-i18n="day2">Päivä 4</span>
+            <h3 data-i18n="proc2Title">Aloitustapaaminen</h3>
+            <p data-i18n="proc2Text">
+              Suunnitellaan yhteydenottostrategia, asiakassegmentit ja integraatiot.
             </p>
           </div>
 
           <div class="timeline-item card">
-            <span class="timeline-step">Day 7</span>
-            <h3>Kickoff session</h3>
-            <p>
-              Campaign logic, inbox setup and CRM integration are finalized
-              together.
+            <span class="timeline-step" data-i18n="day3">Päivä 6</span>
+            <h3 data-i18n="proc3Title">Räätälöinti ja asiakasportaali</h3>
+            <p data-i18n="proc3Text">
+              AutoClient mukautetaan teidän tarpeisiin ja pääsette dashboardiin.
             </p>
           </div>
 
           <div class="timeline-item card">
-            <span class="timeline-step">Day 10</span>
-            <h3>Dashboard live and automation running</h3>
-            <p>
-              The system is tested, access is delivered and execution starts.
+            <span class="timeline-step" data-i18n="day4">Päivä 9</span>
+            <h3 data-i18n="proc4Title">Prospektointi käyntiin</h3>
+            <p data-i18n="proc4Text">
+              Kaikki on valmista, prospektointi alkaa ja ensimmäiset viestit lähtevät pian.
             </p>
           </div>
         </div>
@@ -503,17 +505,17 @@
       <div class="container">
         <div class="cta-box">
           <div class="cta-copy">
-            <div class="eyebrow">NEXT STEP</div>
-            <h2>Want a sharper outbound system without the usual chaos?</h2>
-            <p>
-              Let’s look at your sales process, ideal customer profile and current
-              outbound model — then see whether AutoClient is the right fit.
+            <div class="eyebrow" data-i18n="ctaEyebrow">SEURAAVA ASKEL</div>
+            <h2 data-i18n="ctaTitle">Valitse AutoClient, jos haluat yhdistää laadukkaan toteutuksen ja skaalautuvan järjestelmän</h2>
+            <p data-i18n="ctaText">
+              Katsotaan yhdessä, miten AutoClient sopii teidän myyntiprosessiin,
+              asiakasprofiiliin ja kasvutavoitteisiin.
             </p>
           </div>
 
           <div class="cta-actions">
-            <a href="mailto:info@scalerasolutions.eu" class="btn btn-primary">Contact us</a>
-            <a href="#" class="btn btn-secondary">Book a strategy call</a>
+            <a href="mailto:info@scalerasolutions.eu" class="btn btn-primary" data-i18n="ctaPrimary">Ota yhteyttä</a>
+            <a href="#" class="btn btn-secondary" data-i18n="ctaSecondary">Varaa keskustelu</a>
           </div>
         </div>
       </div>
@@ -524,27 +526,28 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <img src="assets/logo.webp" alt="Scalera Solutions logo" class="footer-logo" />
-        <p>
-          Scalera Solutions builds AI-assisted systems for cleaner B2B prospecting,
-          outbound execution and sales workflow support.
+        <p data-i18n="footerText">
+          Scalera Solutions rakentaa AI-avusteisia järjestelmiä, jotka tekevät
+          B2B-prospektoinnista, outboundista ja myynnin alkuvaiheesta
+          systemaattisempaa ja läpinäkyvämpää.
         </p>
       </div>
 
       <div>
-        <h4>Navigation</h4>
+        <h4 data-i18n="footerNav">Navigaatio</h4>
         <ul class="footer-links">
-          <li><a href="#product">Product</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#process">Process</a></li>
+          <li><a href="#product" data-i18n="navProduct">Tuote</a></li>
+          <li><a href="#features" data-i18n="navFeatures">Ominaisuudet</a></li>
+          <li><a href="#pricing" data-i18n="navPricing">Hinnoittelu</a></li>
+          <li><a href="#process" data-i18n="navProcess">Käyttöönotto</a></li>
         </ul>
       </div>
 
       <div>
-        <h4>Contact</h4>
+        <h4 data-i18n="footerContact">Yhteys</h4>
         <ul class="footer-links">
           <li><a href="mailto:info@scalerasolutions.eu">info@scalerasolutions.eu</a></li>
-          <li><a href="#contact">Book a call</a></li>
+          <li><a href="#contact" data-i18n="navContact">Varaa keskustelu</a></li>
         </ul>
       </div>
     </div>
