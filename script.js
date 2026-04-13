@@ -29,13 +29,21 @@ const translations = {
 
     heroEyebrow: "AUTOCLIENT B2B-MYYNNIN ALKUVAIHEESEEN",
     heroTitle: "Vähemmän manuaalista työtä. Enemmän oikeita myyntikeskusteluja.",
-    heroText: "AutoClient rakentaa systemaattisen outbound-prosessin: prospektitietokanta, ostosignaalit, personoidut yhteydenotot, vastausten hallinta ja läpinäkyvä dashboard yhdessä kokonaisuudessa.",
+    heroText: "AutoClient rakentaa teille hallittavan outbound-järjestelmän: prospektit, ostosignaalit, personoidut yhteydenotot ja läpinäkyvä dashboard samassa kokonaisuudessa.",
     heroBtnPrimary: "Varaa demo",
     heroBtnSecondary: "Katso dashboard",
     heroBadge1: "Prospektitietokanta",
     heroBadge2: "Ostosignaalit",
     heroBadge3: "Personoitu outbound",
     heroBadge4: "CRM-integraatio",
+
+    proof1Label: "Prospektit",
+    proof1Text: "Ajantasainen tietokanta",
+    proof2Label: "Kontaktoidut liidit",
+    proof2Text: "Validoitu ennen lähetystä",
+    proof3Label: "Aikaa säästetty",
+    proof3Text: "Manuaalinen työ vähenee",
+    scrollText: "Scrollaa alas",
 
     dashboardLive: "Live",
     metric1Label: "Prospektit löydetty",
@@ -191,7 +199,7 @@ const translations = {
 
     heroEyebrow: "AUTOCLIENT FOR EARLY-STAGE B2B SALES",
     heroTitle: "Less manual work. More real sales conversations.",
-    heroText: "AutoClient builds a systematic outbound process: prospect database, buying signals, personalized outreach, reply handling and a transparent dashboard in one system.",
+    heroText: "AutoClient builds a controlled outbound system for your team: prospects, buying signals, personalized outreach and a transparent dashboard in one system.",
     heroBtnPrimary: "Book a demo",
     heroBtnSecondary: "View dashboard",
     heroBadge1: "Prospect database",
@@ -199,9 +207,17 @@ const translations = {
     heroBadge3: "Personalized outbound",
     heroBadge4: "CRM integration",
 
+    proof1Label: "Prospects",
+    proof1Text: "Up-to-date database",
+    proof2Label: "Contacted leads",
+    proof2Text: "Validated before send",
+    proof3Label: "Time saved",
+    proof3Text: "Manual work reduced",
+    scrollText: "Scroll down",
+
     dashboardLive: "Live",
     metric1Label: "Prospects found",
-    metric1Text: "Always up-to-date database",
+    metric1Text: "Up-to-date database",
     metric2Label: "Leads contacted",
     metric2Text: "Validated before sending",
     metric3Label: "Meetings booked",
@@ -230,7 +246,7 @@ const translations = {
 
     productEyebrow: "WHAT AUTOCLIENT DOES",
     productTitle: "A systematic solution for early-stage sales execution",
-    productText: "AutoClient removes repetitive manual work from the beginning of sales and builds a process that generates conversations more consistently.",
+    productText: "AutoClient removes repetitive manual work from early-stage sales and builds a process that generates conversations more consistently.",
     productCard1Title: "Less manual work",
     productCard1Text: "Prospecting, enrichment and outbound routines no longer depend on heavy manual work.",
     productCard2Title: "More timely leads",
@@ -240,7 +256,7 @@ const translations = {
 
     showcaseEyebrow: "DASHBOARD",
     showcaseTitle: "AutoClient in practice",
-    showcaseText: "The client portal brings together campaigns, companies, contacts, deep analysis and visual insights in one environment.",
+    showcaseText: "The client portal brings campaigns, companies, contacts, deep analysis and visual insights into one environment.",
     showcaseBox1Label: "Clear interface",
     showcaseBox1Title: "A dashboard that makes the process transparent",
     showcaseBox1Text: "You see what is happening, what has been done, who is next and how campaigns are actually performing.",
@@ -286,7 +302,7 @@ const translations = {
     yt3: "Sales calls and closing",
     yt4: "Reviewing and improving results",
     yt5: "Driving business growth",
-    calloutText: "AutoClient does not replace your sales team. It builds a continuous and controlled outbound system for the early stages of sales.",
+    calloutText: "AutoClient does not replace your sales team. It builds a continuous and controlled outbound system for early-stage sales.",
 
     pricingEyebrow: "PRICING",
     pricingTitle: "Start with a pilot or build a continuous operating model",
