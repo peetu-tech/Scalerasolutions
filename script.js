@@ -20,6 +20,9 @@ const basicPlanPrice = document.getElementById("basicPlanPrice");
 const basicPlanPeriod = document.getElementById("basicPlanPeriod");
 const basicPlanSub = document.getElementById("basicPlanSub");
 
+/* TÄMÄ PITÄÄ OLLA YLHÄÄLLÄ ennen setLanguage-kutsuja */
+let currentPricingMode = "yearly";
+
 if (menuToggle && navLinks) {
   menuToggle.addEventListener("click", () => {
     navLinks.classList.toggle("open");
@@ -319,6 +322,26 @@ const translations = {
   }
 };
 
+function updatePricingTexts(mode, lang = htmlEl.lang || "fi") {
+  currentPricingMode = mode;
+
+  pricingSwitchButtons.forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.pricingMode === mode);
+  });
+
+  if (!basicPlanPrice || !basicPlanPeriod || !basicPlanSub) return;
+
+  if (mode === "yearly") {
+    basicPlanPrice.textContent = "6000€";
+    basicPlanPeriod.textContent = translations[lang].planYear || " / year";
+    basicPlanSub.textContent = translations[lang].basicSubYearly;
+  } else {
+    basicPlanPrice.textContent = "200€";
+    basicPlanPeriod.textContent = lang === "fi" ? " / 3 kk" : " / 3 months";
+    basicPlanSub.textContent = translations[lang].basicSubQuarterly;
+  }
+}
+
 function setLanguage(lang) {
   const selected = translations[lang];
   if (!selected) return;
@@ -349,11 +372,14 @@ langButtons.forEach((btn) => {
 
 const savedLang = localStorage.getItem("siteLanguage") || "fi";
 setLanguage(savedLang);
+updatePricingTexts(currentPricingMode, savedLang);
 
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) entry.target.classList.add("is-visible");
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+      }
     });
   },
   { threshold: 0.16 }
@@ -383,7 +409,9 @@ const countObserver = new IntersectionObserver(
         const value = Math.round(target * eased);
         el.textContent = `${formatCount(value)}${suffix}`;
 
-        if (progress < 1) requestAnimationFrame(update);
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        }
       }
 
       requestAnimationFrame(update);
@@ -509,39 +537,20 @@ window.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeLightbox();
 });
 
-let currentPricingMode = "yearly";
-
-function updatePricingTexts(mode, lang = htmlEl.lang || "fi") {
-  currentPricingMode = mode;
-
-  pricingSwitchButtons.forEach((btn) => {
-    btn.classList.toggle("active", btn.dataset.pricingMode === mode);
-  });
-
-  if (!basicPlanPrice || !basicPlanPeriod || !basicPlanSub) return;
-
-  if (mode === "yearly") {
-    basicPlanPrice.textContent = "6000€";
-    basicPlanPeriod.textContent = translations[lang].planYear || " / year";
-    basicPlanSub.textContent = translations[lang].basicSubYearly;
-  } else {
-    basicPlanPrice.textContent = "200€";
-    basicPlanPeriod.textContent = lang === "fi" ? " / 3 kk" : " / 3 months";
-    basicPlanSub.textContent = translations[lang].basicSubQuarterly;
-  }
-}
-
 pricingSwitchButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     updatePricingTexts(btn.dataset.pricingMode, htmlEl.lang || "fi");
   });
 });
 
-updatePricingTexts("yearly", htmlEl.lang || "fi");
+/* Varmistus että loader katoaa vaikka jokin muu menisi pieleen */
+function hideLoader() {
+  pageLoader?.classList.add("hidden");
+  document.body.classList.remove("is-loading");
+}
 
 window.addEventListener("load", () => {
-  setTimeout(() => {
-    pageLoader?.classList.add("hidden");
-    document.body.classList.remove("is-loading");
-  }, 950);
+  setTimeout(hideLoader, 950);
 });
+
+setTimeout(hideLoader, 2500);
